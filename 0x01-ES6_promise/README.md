@@ -1,26 +1,19 @@
-# 0x00. ES6 Basics
-
-## Concepts
-
-For this project, we expect you to look at these concepts:
-
-- [Modern Javascript]()
-- [Software Linter](https://intranet.alxswe.com/concepts/542)
-
-![image](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/12/08806026ef621f900121.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230417%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230417T060928Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=dc34354548738f0f742f6d02d0b30d2beb70b6517e23dee7dd90600e4ea3d1a7)
+# 0x01. ES6 Promises
+![image](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/12/75862d67ca51a042003c.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230418%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230418T134037Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f46284b38d2327ba70547f55406b214cbe9ad5edeee17d31796581c958e257da)
 
 ## Resources
 
-- [ECMAScript 6 - ECMAScript 2015](https://www.w3schools.com/js/js_es6.asp)
-- [Statements and declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)
-- [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-- [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
-- [Rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
-- [Javascript ES6 — Iterables and Iterators](https://towardsdatascience.com/javascript-es6-iterables-and-iterators-de18b54f4d4)
+- [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [JavaScript Promise: An introduction]()
+- [Await]()
+- [Async]()
+- [Throw / Try]()
+
 
 # Setup
 
 ## Install NodeJS 12.11.x
+
 (in your home directory):
 
     curl -sL <https://deb.nodesource.com/setup_12.x> -o nodesource_setup.sh
@@ -33,7 +26,9 @@ See the version
     v12.11.1
     $ npm -v
     6.11.3
+
 ## Install Jest, Babel, and ESLint
+
 in your project directory:
 
 - Install Jest using: <b>npm install --save-dev jest</b>
@@ -79,6 +74,24 @@ in your project directory:
     ],
     };
 
+<b>utils.js</b>
+
+Use when you get to tasks requiring uploadPhoto and createUser.
+
+    export function uploadPhoto() {
+    return Promise.resolve({
+        status: 200,
+        body: 'photo-profile-1',
+    });
+    }
+
+    export function createUser() {
+    return Promise.resolve({
+        firstName: 'Guillaume',
+        lastName: 'Salva',
+    });
+    }
+
 <b>.eslintrc.js</b>
 
     module.exports = {
@@ -117,9 +130,24 @@ in your project directory:
     ]
     };
 
+## and…
 
-## Finally…
+Don’t forget to run <b>$ npm install</b> when you have the package.json
 
-Don’t forget to run <b>$ npm install</b> from the terminal of your project folder to install all necessary project dependencies.
+## Response Data Format
+
+uploadPhoto returns a response with the format
+
+    {
+    status: 200,
+    body: 'photo-profile-1',
+    }
+
+createUser returns a response with the format
+
+    {
+    firstName: 'Guillaume',
+    lastName: 'Salva',
+    }
 
 ## Solutions for mandatory and advanced tasks...
