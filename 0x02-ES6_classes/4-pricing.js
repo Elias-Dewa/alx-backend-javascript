@@ -12,7 +12,9 @@ export default class Pricing {
 
   get currency() { return this._currency; }
 
-  set currency(currency) { this._currency = currency; }
+  set currency(currency) {
+    if (currency instanceof Currency) this._currency = currency;
+  }
 
   displayFullPrice() {
     return `${this._amount} ${this._currency.name} (${this._currency.code})`;
