@@ -1,28 +1,35 @@
 const fs = require('fs');
 
 const countStudents = (path) => {
-  let fileContent;
+  let content;
   try {
-    fileContent = fs.readFileSync(path, 'utf8').toString().split('\n');
-    fileContent = fileContent.slice(1, fileContent.length - 1);
-
-    const NUMBER_OF_STUDENTS = fileContent.length;
-    console.log(`Number of students: ${NUMBER_OF_STUDENTS}`)
-
-    const fields = {};
-    for (const data of fileContent) {
-      const student = data.split(',');
-
-      if (!fields[student[3]]) fields[student[3]] = [];
-      fields[student[3]].push(student[0]);
-    }
-    for (const field in fields) {
-      if (field) {
-        console.log(`Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(',')}`);
-      }
-    }
+    content = fs.readFileSync(path, 'utf8');
   } catch (error) {
     throw new Error('Cannot load the database');
+  }
+  const students = {};
+  content = data.toString().split('\n');
+  content = content.filter((item) => item.length > 0);
+  content.shift();
+
+  content.forEach((item) => {
+    if (item.length > 0) {
+      const line = item.split(',');
+      if (line[3] in students) {
+        students[line[3]].push(line[0]);
+      } else {
+        students[line[3]] = [line[0]];
+      }
+    }
+  });
+  console.log(`Number of students: ${content.length}`);
+
+  for (const field in subjects) {
+    if (field) {
+      const list = subjects[field]
+      const LIST_OF_FIRSTNAMES = list.toString().replace(/,/g, ', ');
+      console.log(`Number of students in ${field}: ${list.length}. List: ${LIST_OF_FIRSTNAMES}`);
+    }
   }
 };
 
