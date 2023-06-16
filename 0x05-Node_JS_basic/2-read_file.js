@@ -6,7 +6,7 @@ const countStudents = (path) => {
     fileContent = fs.readFileSync(path, 'utf8').toString().split('\n');
     fileContent = fileContent.slice(1, fileContent.length - 1);
 
-    let NUMBER_OF_STUDENTS = fileContent.length;
+    const NUMBER_OF_STUDENTS = fileContent.length;
     console.log(`Number of students: ${NUMBER_OF_STUDENTS}`)
 
     const fields = {};
